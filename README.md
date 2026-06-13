@@ -1,20 +1,20 @@
 # Google Colab CLI Skill (`colab-operator`)
 
-This repository contains the `colab-operator` skill and plugin configuration designed for Gemini agent environments. It enables agents to provision, manage, and execute commands on Google Colab remote VMs using the `google-colab-cli`.
+This repository contains the `colab-operator` skill and plugin configuration designed for Antigravity agent environments. It enables agents to provision, manage, and execute commands on Google Colab remote VMs using the `google-colab-cli`.
 
 ## Repository Structure
 
-- `plugin.json`: Plugin configuration registering the skill with Gemini.
+- `plugin.json`: Plugin configuration registering the skill with Antigravity.
 - `skills/colab-operator/SKILL.md`: The skill definition file containing instructions and workflows for the agent.
 
 ---
 
 ## How to Consume This Skill
 
-To consume this skill, you need to register it as a custom plugin in your Gemini agent workspace environment.
+To consume this skill, you need to register it as a custom plugin in your Antigravity agent workspace environment.
 
 ### Option 1: Direct Clone / Copy (Recommended)
-1. Navigate to your Gemini configuration plugins directory (typically `~/.gemini/config/plugins/` or your project's custom plugins path).
+1. Navigate to your Antigravity configuration plugins directory (typically `~/.gemini/antigravity/` or your project's custom plugins path).
 2. Clone this repository:
    ```bash
    git clone https://github.com/rajivmehtaflex/colab-operator-skill.git google-colab-cli
@@ -31,11 +31,11 @@ git submodule add https://github.com/rajivmehtaflex/colab-operator-skill.git plu
 After adding the files, reload plugins to activate the skill:
 - **In CLI/Terminal:** Run the reload command:
   ```bash
-  gemini plugin reload
+  antigravity plugin reload
   ```
-- **In Web UI/Desktop:** Restart your Gemini agent session or trigger a workspace sync.
+- **In Web UI/Desktop:** Restart your Antigravity agent session or trigger a workspace sync.
 
-Once activated, your Gemini agent will automatically detect and execute commands via the `colab-operator` skill when managing Colab resources.
+Once activated, your Antigravity agent will automatically detect and execute commands via the `colab-operator` skill when managing Colab resources.
 
 ---
 
@@ -72,7 +72,7 @@ colab whoami
 ## Best Practices & Key Discoveries
 
 ### Non-Interactive Execution
-Gemini agents should **never** run interactive REPL commands like `colab repl` or `colab console` as they require an interactive TTY. Always run commands using piped stdin:
+Antigravity agents should **never** run interactive REPL commands like `colab repl` or `colab console` as they require an interactive TTY. Always run commands using piped stdin:
 ```bash
 echo "import torch; print(torch.cuda.is_available())" | colab --auth=adc exec -s my-session
 ```
